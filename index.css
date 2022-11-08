@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap");
+@import url(reset.css);
+
+:root {
+  --c-white: hsl(0, 0%, 100%);
+  --c-pink: hsl(345, 95%, 68%);
+  --c-purple300: hsl(237, 18%, 59%);
+  --c-purple500: hsl(236, 21%, 26%);
+  --c-purple600: hsl(235, 16%, 14%);
+  --c-purple700: hsl(234, 17%, 12%);
+}
+
+body {
+  font-family: "Red Hat Text", sans-serif;
+  font-weight: 700;
+  background: var(--c-purple600) url(./images/bg-stars.svg) top / cover
+    no-repeat;
+  color: var(--c-white);
+}
+
+main {
+  min-height: 100vh;
+  background: url(./images/pattern-hills.svg) bottom no-repeat;
+  padding: 1rem;
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-block: 2rem; 
+}
+
+.cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.socialMediaBar {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.socialMediaBar span {
+  cursor: pointer;
+}
+@media (min-width: 45em) {
+  h1 {
+    margin-block: 5rem;
+  }
+  .socialMediaBar {
+    margin-top: 8rem;
+  }
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.time-unit {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  color: var(--c-purple300);
+}
+
+.flip-card {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  box-shadow: 0 10px 1px var(--c-purple700);
+  border-radius: 0.5rem;
+  font-size: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.half-circle {
+  width: 10px;
+  height: 10px;
+  background-color: var(--c-purple700);
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.half-circle-left {
+  left: -5px;
+}
+
+.half-circle-right {
+  right: -5px;
+}
+
+.top,
+.bottom,
+.flip-card .top-flip,
+.flip-card .bottom-flip {
+  height: 0.75em;
+  line-height: 1;
+  padding: 0.5em;
+  width: 9rem;
+  overflow: hidden;
+}
+
+.top,
+.flip-card .top-flip {
+  color: hsl(345, 95%, 66%);
+  background-color: hsl(236, 21%, 25%);
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+}
+
+.bottom,
+.flip-card .bottom-flip {
+  background-color: var(--c-purple500);
+  display: flex;
+  align-items: flex-end;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  color: var(--c-pink);
+}
+
+.flip-card .top-flip {
+  position: absolute;
+  width: 100%;
+  animation: flip-top 250ms ease-in;
+  transform-origin: bottom;
+}
+
+@keyframes flip-top {
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+.flip-card .bottom-flip {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  animation: flip-bottom 250ms ease-out 250ms;
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+
+@keyframes flip-bottom {
+  100% {
+    transform: rotateX(0deg);
+  }
+}
